@@ -19,4 +19,8 @@ describe('Feature Test:', function(){
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
+  it('reset button resets temperature to 20 degrees', function() {
+    button.reset();
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
+  });
 });
