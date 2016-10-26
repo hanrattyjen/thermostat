@@ -54,7 +54,7 @@ describe('Thermostat',function(){
     });
     describe('when temp is between 18 and 25', function(){
       it('is considered medium-usage', function(){
-        for (var i = 0; i < 5; i++) {
+        for (var i = 0; i < 4; i++) {
         thermostat.increase();
       };
         expect(thermostat.energyUsage()).toEqual('medium-usage');
@@ -62,7 +62,7 @@ describe('Thermostat',function(){
     });
     describe('when temp is above 25', function(){
       it('is considered high-usage', function(){
-        for (var i = 0; i < 6; i++) {
+        for (var i = 0; i < 5; i++) {
         thermostat.increase();
       };
         expect(thermostat.energyUsage()).toEqual('high-usage');

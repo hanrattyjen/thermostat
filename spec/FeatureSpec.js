@@ -2,27 +2,25 @@
 
 describe('Feature Test:', function(){
   var thermostat;
-  var button;
 
   beforeEach(function() {
     thermostat = new Thermostat();
-    button = new Button(thermostat);
   });
 
   it('can increase the temperature with the up button', function() {
-    button.up();
+    thermostat.increase();
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
 
   it('can decrease the temperature with the down button', function(){
-    button.down();
+    thermostat.decrease();
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
 
   it('reset button resets temperature to 20 degrees', function() {
-    button.reset();
+    thermostat.resetTemp();
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
-  
+
 });
