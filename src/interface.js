@@ -13,7 +13,7 @@ $(document).ready(function() {
   });
 
   $('#temp-reset').click(function() {
-    thermostat.reset();
+    thermostat.resetTemp();
     updateTemperature();
   });
 
