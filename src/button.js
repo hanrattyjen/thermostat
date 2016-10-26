@@ -1,10 +1,9 @@
-'use strict'
+'use strict';
 
-function Button() {
-  // this._temp = 20;
+function Button(thermostat) {
+  this.thermostat = thermostat;
 }
 
-Button.prototype.up = function(thermostat) {
-  thermostat.increase(this);
-  // this._temp = 21;
+Button.prototype.up = function() {
+  this.thermostat.increase();
 };

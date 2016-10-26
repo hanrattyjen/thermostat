@@ -4,13 +4,13 @@ describe('Feature Test:', function(){
   var thermostat;
   var button;
 
-  beforeEach((function) {
+  beforeEach(function() {
     thermostat = new Thermostat();
-    button = new Button();
+    button = new Button(thermostat);
   });
 
   it('can increase the temperature with the up button', function() {
     button.up();
-    expect(thermostat.temperature()).toEqual(21);
+    expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
 });

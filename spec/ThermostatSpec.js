@@ -7,8 +7,8 @@ describe('Thermostat',function(){
   beforeEach(function(){
     thermostat = new Thermostat();
   });
-  it('has a default temperature of 20 dergrees', function(){
-    expect(thermostat.temperature()).toEqual(20);
+  it('has a default temperature of 20 degrees', function(){
+    expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
-    
+
 });

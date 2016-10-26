@@ -5,8 +5,8 @@ describe('Button', function() {
   var thermostat;
 
   beforeEach(function() {
-    button = new Button();
-    thermostat = jasmine.createSpyObj('thermostat', ['temperature', 'increase']);
+    thermostat = jasmine.createSpyObj('thermostat', ['getCurrentTemperature', 'increase']);
+    button = new Button(thermostat);
   });
 
   it('increases the temperature', function() {
