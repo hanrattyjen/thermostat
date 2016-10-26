@@ -13,4 +13,9 @@ describe('Feature Test:', function(){
     button.up();
     expect(thermostat.getCurrentTemperature()).toEqual(21);
   });
+
+  it('can decrease the temperature with the down button', function(){
+    button.down();
+    expect(thermostat.getCurrentTemperature()).toEqual(19);
+  });
 });

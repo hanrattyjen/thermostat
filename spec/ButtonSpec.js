@@ -13,4 +13,9 @@ describe('Button', function() {
     button.up();
     expect(thermostat.increase).toHaveBeenCalled();
   });
+
+  it('decreases the temperature', function() {
+    button.down();
+    expect(thermostat.decrease).toHaveBeenCalled();
+  });
 });
