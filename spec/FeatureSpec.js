@@ -18,4 +18,5 @@ describe('Feature Test:', function(){
     button.down();
     expect(thermostat.getCurrentTemperature()).toEqual(19);
   });
+
 });

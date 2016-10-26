@@ -12,6 +12,10 @@ describe('Thermostat',function(){
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
+  it('has a minimum temperature of 10 degrees', function() {
+    expect(thermostat.minimumTemperature).toEqual(10);
+  });
+
   it('can call the increase method', function(){
     thermostat.increase();
     expect(thermostat.getCurrentTemperature()).toEqual(21);
