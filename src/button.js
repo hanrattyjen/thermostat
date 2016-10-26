@@ -11,3 +11,7 @@ Button.prototype.up = function() {
 Button.prototype.down = function() {
   this.thermostat.decrease();
 };
+
+Button.prototype.reset = function() {
+  this.thermostat.resetTemp();
+}

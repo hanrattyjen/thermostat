@@ -27,7 +27,7 @@ describe('Thermostat',function(){
   });
 
   it('can call the reset method', function() {
-    thermostat.reset();
+    thermostat.resetTemp();
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
 
@@ -40,6 +40,33 @@ describe('Thermostat',function(){
     it('has a maximum temperature of 32 degrees when #powerSavingModeOff', function() {
       thermostat.powerSavingModeOff();
       expect(thermostat.maximumTemperature).toEqual(32);
+    });
+  });
+
+  describe('displaying usage levels', function(){
+    describe('when temp is below 18', function(){
+      it('is considered low-usage', function(){
+        for (var i = 0; i < 3; i++) {
+        thermostat.decrease();
+      };
+        expect(thermostat.energyUsage()).toEqual('low-usage');
+      });
+    });
+    describe('when temp is between 18 and 25', function(){
+      it('is considered medium-usage', function(){
+        for (var i = 0; i < 5; i++) {
+        thermostat.increase();
+      };
+        expect(thermostat.energyUsage()).toEqual('medium-usage');
+      });
+    });
+    describe('when temp is above 25', function(){
+      it('is considered high-usage', function(){
+        for (var i = 0; i < 6; i++) {
+        thermostat.increase();
+      };
+        expect(thermostat.energyUsage()).toEqual('high-usage');
+      });
     });
   });
 

@@ -23,4 +23,6 @@ describe('Feature Test:', function(){
     button.reset();
     expect(thermostat.getCurrentTemperature()).toEqual(20);
   });
+
+  
 });
