@@ -1,6 +1,5 @@
 $(document).ready(function() {
   var thermostat = new Thermostat();
-  updateTemperature();
 
   $('#temperature-up').on('click', function() { // event listener
     thermostat.increaseTemperature(); // update model
@@ -35,6 +34,21 @@ $(document).ready(function() {
     displayWeather(city);
   })
 
+  $('#save').click(function() {
+    var currenttemperature = thermostat.getCurrentTemperature();
+    var powersaving = thermostat.isPowerSavingModeOn();
+    var city = $('#current-city').val();
+    $.ajax({
+      type: 'post',
+      url: '/save',
+      data: {
+        'currenttemperature': currenttemperature,
+        'powersaving': powersaving,
+        'city': city
+      }
+    });
+  });
+
   function displayWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
     var token = '&appid=c49855571159f819f404955a8b1a8080';
@@ -46,7 +60,7 @@ $(document).ready(function() {
   }
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temperature);
+    $('#temperature').text(thermostat.getCurrentTemperature());
     $('#temperature').attr('class', thermostat.energyUsage());
   }
 })

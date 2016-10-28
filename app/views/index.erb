@@ -1,5 +1,5 @@
     <section>
-      <h1 id="temperature"></h1>
+      <h1 id="temperature"><%= @setting.currenttemperature %></h1>
       <p>
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
@@ -10,7 +10,7 @@
       </p>
     </section>
     <section>
-      <h2>Current temperature: <span id="current-temperature" name="currenttemperature"><%= @setting.temperature %></span></h2>
+      <h2>Current temperature: <span id="current-temperature"></span></h2>
       <h4>Current weather: <span id="weather-description"></span></h4>
 
       <form id='select-city'>

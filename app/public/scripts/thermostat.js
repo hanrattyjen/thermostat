@@ -18,6 +18,7 @@ Thermostat.prototype.increaseTemperature = function(){
   if (this.isMaximumTemperature()) {
     return;
   }
+
   this.temperature += 1;
 };
 
