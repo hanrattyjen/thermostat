@@ -7,7 +7,7 @@ class Setting
 
   property :id,                 Serial
   property :currenttemperature, Integer
-  property :powersaving,       Boolean
+  property :powersaving,        Boolean
   property :city,               String
 
 end

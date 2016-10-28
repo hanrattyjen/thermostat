@@ -4,19 +4,18 @@
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
         <button id="temperature-reset">RESET</button>
-        <h3>Power Saving Mode: <span id="power-saving-status">ON</span></h3>
+        <h3>Power Saving Mode: <span id="power-saving-status"><%= @setting.powersaving ? "ON" : "OFF" %></span></h3>
         <button id="powersaving-on">ON</button>
         <button id="powersaving-off">OFF</button>
       </p>
     </section>
     <section>
-      <h2>Current temperature: <span id="current-temperature" name="currenttemperature"></span></h2>
+      <h2>Current temperature: <span id="current-temperature" name="currenttemperature"><%= @setting.temperature %></span></h2>
       <h4>Current weather: <span id="weather-description"></span></h4>
+
       <form id='select-city'>
         <input id='current-city' type='text' name="city" placeholder="Enter a city"></input>
         <input id='submit' type='submit'></input>
       </form>
-      <form action='/save' method="post">
-        <button id="save">SAVE</button>
-      </form>
     </section>
+    <button id="save">SAVE</button>

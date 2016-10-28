@@ -5,12 +5,12 @@ $(document).ready(function() {
   $('#temperature-up').on('click', function() { // event listener
     thermostat.increaseTemperature(); // update model
     updateTemperature();
-  })
+  });
 
   $('#temperature-down').click(function() { // event listener
     thermostat.decreaseTemperature(); // update model
     updateTemperature();
-  })
+  });
 
   $('#temperature-reset').click(function() {
     thermostat.resetTemperature();
@@ -21,23 +21,23 @@ $(document).ready(function() {
     thermostat.turnPowerSavingModeOn();
     $('#power-saving-status').text('ON')
     updateTemperature();
-  })
+  });
 
   $('#powersaving-off').click(function() {
     thermostat.turnPowerSavingModeOff();
     $('#power-saving-status').text('OFF')
     updateTemperature();
-  })
+  });
 
   $('#select-city').submit(function(event) {
     event.preventDefault();
     var city = $('#current-city').val();
     displayWeather(city);
-  })
+  });
 
   $('#save').click(function() {
     var currenttemperature = thermostat.getCurrentTemperature();
-    var powersaving = isPowerSavingModeOn();
+    var powersaving = thermostat.isPowerSavingModeOn();
     var city = $('#current-city').val();
     $.ajax({
       type: 'post',
@@ -48,7 +48,7 @@ $(document).ready(function() {
         'city': city
       }
     });
-  })
+  });
 
   function displayWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;
@@ -64,4 +64,4 @@ $(document).ready(function() {
     $('#temperature').text(thermostat.temperature);
     $('#temperature').attr('class', thermostat.energyUsage());
   }
-})
+});
