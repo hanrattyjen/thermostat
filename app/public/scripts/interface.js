@@ -41,6 +41,7 @@ $(document).ready(function() {
     var units = '&units=metric';
     $.get(url + token + units, function(data){
       $('#current-temperature').text(data.main.temp);
+      $('#weather-description').text(data.weather[0].main);
     })
   }
 

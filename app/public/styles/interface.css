@@ -148,6 +148,12 @@ input[type=text] {
   background-color: #302E2E;
 }
 
+h4 {
+  position: absolute;
+  top: 500px;
+  left: 120px;
+  color: white;
+}
 
 .low-usage {
   color: green;
