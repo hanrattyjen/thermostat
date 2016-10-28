@@ -4,7 +4,6 @@
         <button id="temperature-up">+</button>
         <button id="temperature-down">-</button>
         <button id="temperature-reset">RESET</button>
-        <button id="save">SAVE</button>
         <h3>Power Saving Mode: <span id="power-saving-status">ON</span></h3>
         <button id="powersaving-on">ON</button>
         <button id="powersaving-off">OFF</button>
@@ -16,5 +15,8 @@
       <form id='select-city'>
         <input id='current-city' type='text' name="city" placeholder="Enter a city"></input>
         <input id='submit' type='submit'></input>
+      </form>
+      <form action='/save' method="post">
+        <button id="save">SAVE</button>
       </form>
     </section>

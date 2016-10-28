@@ -36,23 +36,19 @@ $(document).ready(function() {
   })
 
   $('#save').click(function() {
-    var currenttemperature = $('#current-temperature').val();
-    var powersaving = $('#power-saving-status').val();
+    var currenttemperature = thermostat.getCurrentTemperature();
+    var powersaving = isPowerSavingModeOn();
     var city = $('#current-city').val();
-    saveWeather(currenttemperature, city, powersaving)
-  })
-
-  function saveWeather(currenttemperature, city, powersaving) {
     $.ajax({
       type: 'post',
       url: '/save',
       data: {
-        'currenttemperature': temperature,
-        'powersaving': status,
+        'currenttemperature': currenttemperature,
+        'powersaving': powersaving,
         'city': city
       }
     });
-  }
+  })
 
   function displayWeather(city){
     var url = 'http://api.openweathermap.org/data/2.5/weather?q=' + city;

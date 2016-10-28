@@ -13,12 +13,14 @@ class Thermostat < Sinatra::Base
     currenttemperature = params[:currenttemperature]
     powersaving = params[:powersaving]
     city = params[:city]
-    setting = Setting.create(current_temperature: currenttemperature, powersaving: powersaving, city: city)
+    setting = Setting.create(currenttemperature: currenttemperature, powersaving: powersaving, city: city)
+    redirect to '/settings'
   end
 
   get '/settings' do
     @settings = Setting.last
     p @settings
+    erb(:index)
   end
 
   get '/index' do
