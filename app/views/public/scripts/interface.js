@@ -1,6 +1,14 @@
 $(document).ready(function() {
-  var thermostat = new Thermostat();
-  updateTemperature();
+
+  var saved_temp = 20;
+
+  $.getJSON('/', function(data){
+    debugger;
+    saved_temp = data;
+    console.log(saved_temp);
+  ));
+
+  var thermostat = new Thermostat(saved_temp);
 
   $('#temperature-up').on('click', function() { // event listener
     thermostat.increaseTemperature(); // update model
@@ -48,6 +56,7 @@ $(document).ready(function() {
         'city': city
       }
     });
+    // setSavedTemp(currenttemperature);
   });
 
   function displayWeather(city){
@@ -57,8 +66,14 @@ $(document).ready(function() {
     $.get(url + token + units, function(data){
       $('#current-temperature').text(data.main.temp);
       $('#weather-description').text(data.weather[0].main);
-    })
+    });
   }
+
+  // function setSavedTemp(currenttemperature){
+  //   $.get('/', function(){
+  //     thermostat.temperature = currenttemperature;
+  //   ));
+  // }
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperature);
