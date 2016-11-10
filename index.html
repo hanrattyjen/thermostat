@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<link rel='stylesheet' href='css/interface.css'>
+  <head>
+    <title>Thermostat</title>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  <body>
+    <section>
+      <h1 id="temperature"></h1>
+      <p>
+        <button id="temperature-up">+</button>
+        <button id="temperature-down">-</button>
+        <button id="temperature-reset">RESET</button>
+        <h3>Power Saving Mode: <span id="power-saving-status">ON</span></h3>
+        <button id="powersaving-on">ON</button>
+        <button id="powersaving-off">OFF</button>
+      </p>
+    </section>
+    <section>
+      <h2>Current temperature: <span id="current-temperature"></span></h2>
+      <h4>Current weather: <span id="weather-description"></span></h4>
+      <form id='select-city'>
+        <input id='current-city' type='text' placeholder="Enter a city"></input>
+        <input id='submit' type='submit'></input>
+      </form>
+    </section>
+    <script src="src/thermostat.js"></script>
+    <script src="src/interface.js"></script>
+  </body>
+</html>
